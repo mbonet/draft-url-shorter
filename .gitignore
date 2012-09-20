@@ -1,0 +1,15 @@
+# Aptana IDE project files
+.pydevproject
+.project
+
+# Ninja IDE project files
+*.nja
+
+# local helper scripts
+*.script
+
+# python/project files
+*.pyc
+settings_local.py
+*.db
+

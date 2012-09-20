@@ -1,0 +1,14 @@
+<html>
+<head><title>Wrapp Test</title></head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        Url:<input name="url" type="text"/>
+        <button>Submit</button>
+        {% if short %}
+        Your url: {{url}} is now => <a href="{{short}}">{{short}}</a>
+        {% endif %}
+
+    </form>
+</body>
+</html>
