@@ -25,13 +25,15 @@ def homepage(request):
     context = {'url': request.POST.get('url', ''), 'short': ''}
     if context['url']:
         short = create_short_to_cache(context['url'])
-        context['short'] = "http://localhost:9000/wrapp/%s" % short
+        context['short'] = "http://wrapp.no-ip.org:9000/wrapp/%s" % short
     return render(request, 'index.html', context)
 
 
 def resolve(request, key):
     try:
         url = cache.get(key)
+        if url and not url.count('http://'):
+            url = u'http://'+url
         return redirect(url)
     except:
         return render(request, '404.html')
